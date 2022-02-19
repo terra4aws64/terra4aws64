@@ -1,23 +1,28 @@
 # Project: terra4aws64
 
 ```text
- ███████████                                        █████ █████       █████████   █████   ███   █████  █████████      ████████  █████ █████ 
-░█░░░███░░░█                                       ░░███ ░░███       ███░░░░░███ ░░███   ░███  ░░███  ███░░░░░███    ███░░░░███░░███ ░░███  
+ ███████████                                        █████ █████       █████████   █████   ███   █████  █████████      ████████  █████ █████
+░█░░░███░░░█                                       ░░███ ░░███       ███░░░░░███ ░░███   ░███  ░░███  ███░░░░░███    ███░░░░███░░███ ░░███
 ░   ░███  ░   ██████  ████████  ████████   ██████   ░███  ░███ █    ░███    ░███  ░███   ░███   ░███ ░███    ░░░    ░███   ░░░  ░███  ░███ █
     ░███     ███░░███░░███░░███░░███░░███ ░░░░░███  ░███████████    ░███████████  ░███   ░███   ░███ ░░█████████    ░█████████  ░███████████
     ░███    ░███████  ░███ ░░░  ░███ ░░░   ███████  ░░░░░░░███░█    ░███░░░░░███  ░░███  █████  ███   ░░░░░░░░███   ░███░░░░███ ░░░░░░░███░█
-    ░███    ░███░░░   ░███      ░███      ███░░███        ░███░     ░███    ░███   ░░░█████░█████░    ███    ░███   ░███   ░███       ░███░ 
-    █████   ░░██████  █████     █████    ░░████████       █████     █████   █████    ░░███ ░░███     ░░█████████    ░░████████        █████ 
-   ░░░░░     ░░░░░░  ░░░░░     ░░░░░      ░░░░░░░░       ░░░░░     ░░░░░   ░░░░░      ░░░   ░░░       ░░░░░░░░░      ░░░░░░░░        ░░░░░  
+    ░███    ░███░░░   ░███      ░███      ███░░███        ░███░     ░███    ░███   ░░░█████░█████░    ███    ░███   ░███   ░███       ░███░
+    █████   ░░██████  █████     █████    ░░████████       █████     █████   █████    ░░███ ░░███     ░░█████████    ░░████████        █████
+   ░░░░░     ░░░░░░  ░░░░░     ░░░░░      ░░░░░░░░       ░░░░░     ░░░░░   ░░░░░      ░░░   ░░░       ░░░░░░░░░      ░░░░░░░░        ░░░░░
 ```
 
 ## Overview
 
 Collection of Terraform AWS modules for deploying common infrastructure landscapes.
 
-| Module                                                                        | Purpose                                                                                             |
-| ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [terraform-aws-bastion](https://github.com/terra4aws64/terraform-aws-bastion) | Terraform module for creating a dedicated Bastion host for managing private hosts in the target VPC |
+| Module                                                                        | Purpose                                                                                                 |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| [terraform-aws-ami](https://github.com/terra4aws64/terraform-aws-ami)         | Terraform module for creating a curated catalog of AWS AMIs                                             |
+| [terraform-aws-aurora](https://github.com/terra4aws64/terraform-aws-aurora)   | Terraform module for creating AWS RDS Aurora clusters                                                   |
+| [terraform-aws-bastion](https://github.com/terra4aws64/terraform-aws-bastion) | Terraform module for creating a dedicated Bastion host for managing private hosts in the target AWS VPC |
+| [terraform-aws-ec2](https://github.com/terra4aws64/terraform-aws-ec2)         | Terraform module for creating AWS EC2 instances                                                         |
+| [terraform-aws-ec2-as](https://github.com/terra4aws64/terraform-aws-ec2-as)   | Terraform module for creating AWS EC2 Auto Scaling Groups                                               |
+| [terraform-aws-vpc](https://github.com/terra4aws64/terraform-aws-vpc)         | Terraform module for creating AWS VPCs                                                                  |
 
 ## Development
 
