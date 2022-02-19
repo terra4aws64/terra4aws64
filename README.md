@@ -14,9 +14,9 @@
 
 Collection of Terraform AWS modules for deploying common infrastructure landscapes.
 
-| Module | Purpose |
-| ------ | ------- |
-|        |         |
+| Module                                                                        | Purpose                                                                                             |
+| ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [terraform-aws-bastion](https://github.com/terra4aws64/terraform-aws-bastion) | Terraform module for creating a dedicated Bastion host for managing private hosts in the target VPC |
 
 ## Development
 
@@ -24,7 +24,7 @@ Collection of Terraform AWS modules for deploying common infrastructure landscap
 
 - Project GIT repository: [https://github.com/serdigital64/terra4aws64](https://github.com/serdigital64/terra4aws64)
 - Project Documentation: [https://github.com/serdigital64/terra4aws64](https://github.com/serdigital64/terra4aws64)
-- Terraform Namespace: [https://registry.terraform.io/namespaces/serdigital64](https://registry.terraform.io/namespaces/serdigital64)
+- Terraform Namespace: [https://registry.terraform.io/namespaces/terra4aws64](https://registry.terraform.io/namespaces/terra4aws64)
 
 ### Local repository
 
