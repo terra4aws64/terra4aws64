@@ -1,0 +1,16 @@
+# ** ACTION REQUIRED: this is a template file. Copy to .local and remove this line **
+#!/bin/sh
+#
+# Project development environment / Local variables
+#
+# * this file should be excluded from GIT
+# * source before .env
+#
+
+# Project base location. Adjust to your local GIT repo
+DEVTA64_ROOT="${HOME}/git/terra4aws64"
+export DEVTA64_ROOT
+
+# Terraform / CLI
+DEVTA64_CMD_TERRAFORM='/usr/bin/terraform'
+export DEVTA64_CMD_TERRAFORM

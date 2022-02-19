@@ -1,0 +1,178 @@
+#!/bin/bash
+#######################################
+# Test Terraform modules
+#
+# Author: serdigital64 (https://github.com/serdigital64)
+# License: GPL-3.0-or-later (https://www.gnu.org/licenses/gpl-3.0.txt)
+# Repository: https://github.com/serdigital64/terra4aws64
+# Version: 1.0.0
+#######################################
+
+[[ -z "$DEVTA64_BIN" ]] && echo "Error: prepare the dev environment before executing this file" && exit 1
+source "${DEVTA64_BIN}/bashlib64.bash"
+
+function devta64_test_set_workspace() {
+
+  local module="$1"
+
+  TF_CLI_CONFIG_FILE="${DEVTA64_TEST}/terraformrc.hcl"
+  TF_DATA_DIR="${DEVTA64_VAR}/${module}"
+  TF_LOG_PATH="${TF_DATA_DIR}/terraform.log"
+  TF_PLUGIN_CACHE_DIR="${DEVTA64_CACHE}/${module}"
+  TF_LOG='debug'
+  DEVTA64_TEST_TFSTATE="${TF_PLUGIN_CACHE_DIR}/terraform.tfstate"
+
+  [[ ! -d "$TF_DATA_DIR" ]] && bl64_os_mkdir_full "$TF_DATA_DIR"
+  [[ ! -d "$TF_PLUGIN_CACHE_DIR" ]] && bl64_os_mkdir_full "$TF_PLUGIN_CACHE_DIR"
+  :
+}
+
+function devta64_test_cleanup() {
+
+  local module="$1"
+  local source="${DEVTA64_TEST}/${module}"
+
+  bl64_check_directory "$source" && cd "$source" || return 1
+
+  bl64_msg_show_task 'initialize workspace'
+  devta64_test_set_workspace "$module"
+
+  bl64_os_rm_full "${TF_PLUGIN_CACHE_DIR}/registry.terraform.io"
+  bl64_os_rm_full "${TF_DATA_DIR}/modules"
+  bl64_os_rm_full "${TF_DATA_DIR}/providers"
+  bl64_os_rm_file "${DEVTA64_TEST_TFSTATE}"
+  bl64_os_rm_file "${TF_LOG_PATH}"
+  bl64_os_rm_file "${source}/.terraform.lock.hcl"
+  :
+
+}
+
+function devta64_test_run() {
+  local module="$1"
+  local source="${DEVTA64_TEST}/${module}"
+
+  bl64_check_directory "$source" && cd "$source" || return 1
+
+  bl64_msg_show_task 'initialize workspace'
+  devta64_test_set_workspace "$module"
+  "$DEVTA64_CMD_TERRAFORM" 'init' -backend-config="path=$DEVTA64_TEST_TFSTATE" || return $?
+
+  bl64_msg_show_task 'apply changes'
+  "$DEVTA64_CMD_TERRAFORM" 'apply' -auto-approve || return $?
+
+  bl64_msg_show_task 'show current status'
+  "$DEVTA64_CMD_TERRAFORM" 'show'
+}
+
+function devta64_test_destroy() {
+  local module="$1"
+  local source="${DEVTA64_TEST}/${module}"
+
+  bl64_check_directory "$source" && cd "$source" || return 1
+
+  bl64_msg_show_task 'initialize workspace'
+  devta64_test_set_workspace "$module"
+  "$DEVTA64_CMD_TERRAFORM" 'init' -backend-config="path=$DEVTA64_TEST_TFSTATE" || return $?
+
+  bl64_msg_show_task 'destroy infrastructure'
+  "$DEVTA64_CMD_TERRAFORM" 'apply' -destroy -auto-approve
+}
+
+function devta64_test_show() {
+  local module="$1"
+  local source="${DEVTA64_TEST}/${module}"
+
+  bl64_check_directory "$source" && cd "$source" || return 1
+
+  bl64_msg_show_task 'initialize workspace'
+  devta64_test_set_workspace "$module"
+  "$DEVTA64_CMD_TERRAFORM" 'init' -backend-config="path=$DEVTA64_TEST_TFSTATE" || return $?
+
+  bl64_msg_show_task 'show current infrastructure'
+  "$DEVTA64_CMD_TERRAFORM" 'show'
+}
+
+function devta64_test_check() {
+  bl64_check_command "$DEVTA64_CMD_TERRAFORM" && \
+  bl64_check_directory "$DEVTA64_TEST" && \
+  bl64_check_directory "$DEVTA64_VAR" && \
+  bl64_check_directory "$DEVTA64_CACHE"
+}
+
+function devta64_test_help() {
+  bl64_msg_show_usage \
+    '<-t|-d|-s|-c> -n Module [-h]' \
+    'Test Terraform modules' \
+    '
+    -t       : Run module test (terraform init, terraform apply)
+    -d       : Destroy module test infrastructure (terraform destroy)
+    -s       : Show current test infrastructure (terraform show)
+    -c       : Clean test environment
+    ' '
+    -h       : Show help
+    ' '
+    -n Module: module name'
+}
+
+#
+# Main
+#
+
+export DEVTA64_TEST_TFSTATE=''
+export TF_CLI_CONFIG_FILE=''
+export TF_DATA_DIR=''
+export TF_LOG_PATH=''
+export TF_PLUGIN_CACHE_DIR=''
+export TF_LOG=''
+
+declare devta64_test_status=1
+declare devta64_test_command=''
+declare devta64_test_run=''
+declare devta64_test_option=''
+
+(( $# == 0 )) && devta64_test_help && exit 1
+while getopts ':tdscn:h' devta64_test_option; do
+  case "$devta64_test_option" in
+  t)
+    devta64_test_command='devta64_test_run'
+    devta64_test_command_tag='test module'
+    ;;
+  d)
+    devta64_test_command='devta64_test_destroy'
+    devta64_test_command_tag='destroy previous test'
+    ;;
+  s)
+    devta64_test_command='devta64_test_show'
+    devta64_test_command_tag='show current test infrastructure'
+    ;;
+  c)
+    devta64_test_command='devta64_test_cleanup'
+    devta64_test_command_tag='cleanup test environment'
+    ;;
+  n)
+    devta64_test_run="$OPTARG"
+    ;;
+  h)
+    devta64_test_help && exit
+    ;;
+  \?)
+    devta64_test_help && exit 1
+    ;;
+  esac
+done
+[[ -z "$devta64_test_command" ]] && devta64_test_help && exit 1
+devta64_test_check || exit 1
+
+bl64_msg_show_info "starting ${devta64_test_command_tag} process"
+case "$devta64_test_command" in
+'devta64_test_cleanup'|'devta64_test_run'|'devta64_test_destroy'|'devta64_test_show' ) "$devta64_test_command" "$devta64_test_run";;
+esac
+devta64_test_status=$?
+
+if ((devta64_test_status == 0)); then
+  bl64_msg_show_info "${devta64_test_command_tag} process complete"
+else
+  bl64_msg_show_info "${devta64_test_command_tag} process complete with errors (error: $devta64_test_status)"
+fi
+
+exit $devta64_test_status

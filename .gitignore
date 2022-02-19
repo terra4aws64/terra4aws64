@@ -1,0 +1,33 @@
+#
+# Project
+#
+
+.tmp/*
+.cache/*
+.var/*
+
+# VScode
+.vscode/*
+*.code-workspace
+
+# Builds for prod/dev/test
+dist/*
+build/*
+
+# Secrets
+.secrets
+
+# Local variables
+.local
+
+# Keep placeholder for empty directories
+!/**/.gitkeep
+
+#
+# Tools
+#
+
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+
