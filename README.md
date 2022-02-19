@@ -1,12 +1,12 @@
 # Project: terra4aws64
 
 ```text
-  _______                  _  _     __          _______   __ _  _   
- |__   __|                | || |   /\ \        / / ____| / /| || |  
-    | | ___ _ __ _ __ __ _| || |_ /  \ \  /\  / / (___  / /_| || |_ 
+  _______                  _  _     __          _______   __ _  _
+ |__   __|                | || |   /\ \        / / ____| / /| || |
+    | | ___ _ __ _ __ __ _| || |_ /  \ \  /\  / / (___  / /_| || |_
     | |/ _ \ '__| '__/ _` |__   _/ /\ \ \/  \/ / \___ \| '_ \__   _|
-    | |  __/ |  | | | (_| |  | |/ ____ \  /\  /  ____) | (_) | | |  
-    |_|\___|_|  |_|  \__,_|  |_/_/    \_\/  \/  |_____/ \___/  |_|  
+    | |  __/ |  | | | (_| |  | |/ ____ \  /\  /  ____) | (_) | | |
+    |_|\___|_|  |_|  \__,_|  |_/_/    \_\/  \/  |_____/ \___/  |_|
 
 ```
 
@@ -14,15 +14,9 @@
 
 Collection of Terraform AWS modules for deploying common infrastructure landscapes.
 
-## Usage
-
-## Deployment
-
-### OS Compatibility
-
-### Prerequisites
-
-### Installation
+| Module | Purpose |
+| ------ | ------- |
+|        |         |
 
 ## Development
 
@@ -30,10 +24,7 @@ Collection of Terraform AWS modules for deploying common infrastructure landscap
 
 - Project GIT repository: [https://github.com/serdigital64/terra4aws64](https://github.com/serdigital64/terra4aws64)
 - Project Documentation: [https://github.com/serdigital64/terra4aws64](https://github.com/serdigital64/terra4aws64)
-
-### Releases
-
-**Project starting - no releases yet**
+- Terraform Namespace: [https://registry.terraform.io/namespaces/serdigital64](https://registry.terraform.io/namespaces/serdigital64)
 
 ### Local repository
 

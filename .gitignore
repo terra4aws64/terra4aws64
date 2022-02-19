@@ -27,6 +27,8 @@ build/*
 # Tools
 #
 
+/src/*
+
 .terraform.lock.hcl
 terraform.tfstate
 terraform.tfstate.backup
