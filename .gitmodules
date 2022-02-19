@@ -1,0 +1,3 @@
+[submodule "src/terraform-aws-bastion"]
+	path = src/terraform-aws-bastion
+	url = git@github.com:terra4aws64/terraform-aws-bastion.git
