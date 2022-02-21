@@ -32,7 +32,39 @@ Collection of Terraform AWS modules for deploying common infrastructure landscap
 - Project Documentation: [https://github.com/serdigital64/terra4aws64](https://github.com/serdigital64/terra4aws64)
 - Terraform Namespace: [https://registry.terraform.io/namespaces/terra4aws64](https://registry.terraform.io/namespaces/terra4aws64)
 
-### Local repository
+### Environment
+
+- Prepare dev tools:
+  - Install the latest version of the [Terraform CLI](https://www.terraform.io/downloads)
+  - Install GIT
+  - (Optional) Install Git Flow
+- Create GIT repositories
+
+  ```shell
+  # Create the main repository
+  cd <YOUR_PROJECTS_PATH>
+  git clone https://github.com/serdigital64/terra4aws64.git
+  # Create module repositories as git submodules
+  git submodule init
+  # Update modules
+  git submodule update
+  # Enable main branch
+  git submodule foreach "git checkout main"; git submodule foreach "git checkout develop"
+  # (Optional) Initialize git flow
+  git submodule foreach "git flow init -d"
+  ```
+
+- Adjust environment variables to reflect your configuration:
+
+  ```shell
+  # Copy environment definition files from templates:
+  cp dot.local .local
+  cp dot.secrets .secrets
+  # Review and update content for both files
+  ```
+
+- Initialize dev environment variables
+  > `source bin/devta64-set`
 
 ### Contributing
 

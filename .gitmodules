@@ -1,18 +1,18 @@
 [submodule "src/terraform-aws-bastion"]
 	path = src/terraform-aws-bastion
-	url = git@github.com:terra4aws64/terraform-aws-bastion.git
+	url = https://github.com/terra4aws64/terraform-aws-bastion.git
 [submodule "src/terraform-aws-ec2-as"]
 	path = src/terraform-aws-ec2-as
-	url = git@github.com:terra4aws64/terraform-aws-ec2-as.git
+	url = https://github.com/terra4aws64/terraform-aws-ec2-as.git
 [submodule "src/terraform-aws-ec2"]
 	path = src/terraform-aws-ec2
-	url = git@github.com:terra4aws64/terraform-aws-ec2.git
+	url = https://github.com/terra4aws64/terraform-aws-ec2.git
 [submodule "src/terraform-aws-aurora"]
 	path = src/terraform-aws-aurora
-	url = git@github.com:terra4aws64/terraform-aws-aurora.git
+	url = https://github.com/terra4aws64/terraform-aws-aurora.git
 [submodule "src/terraform-aws-ami"]
 	path = src/terraform-aws-ami
-	url = git@github.com:terra4aws64/terraform-aws-ami.git
+	url = https://github.com/terra4aws64/terraform-aws-ami.git
 [submodule "src/terraform-aws-vpc"]
 	path = src/terraform-aws-vpc
-	url = git@github.com:terra4aws64/terraform-aws-vpc.git
+	url = https://github.com/terra4aws64/terraform-aws-vpc.git
