@@ -38,7 +38,7 @@ Collection of Terraform AWS modules for deploying common infrastructure landscap
   - Install the latest version of the [Terraform CLI](https://www.terraform.io/downloads)
   - Install GIT
   - (Optional) Install Git Flow
-- Create GIT repositories
+- Clone GIT repositories
 
   ```shell
   # Create the main repository
@@ -48,10 +48,10 @@ Collection of Terraform AWS modules for deploying common infrastructure landscap
   git submodule init
   # Update modules
   git submodule update
-  # Enable main branch
+  # Enable main branch on submodules
   git submodule foreach "git checkout main"; git submodule foreach "git checkout develop"
-  # (Optional) Initialize git flow
-  git submodule foreach "git flow init -d"
+  # (Optional) Initialize git flow. Production branch:main, use defaults for the remaining branches
+  git submodule foreach "git flow init"
   ```
 
 - Adjust environment variables to reflect your configuration:
@@ -64,7 +64,10 @@ Collection of Terraform AWS modules for deploying common infrastructure landscap
   ```
 
 - Initialize dev environment variables
-  > `source bin/devta64-set`
+
+  ```shell
+  source bin/devta64-set
+  ```
 
 ### Contributing
 
