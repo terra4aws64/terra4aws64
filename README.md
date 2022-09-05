@@ -24,60 +24,21 @@ Collection of Terraform AWS modules for deploying common infrastructure landscap
 | [terraform-aws-ec2-as](https://github.com/terra4aws64/terraform-aws-ec2-as)   | Terraform module for creating AWS EC2 Auto Scaling Groups                                               |
 | [terraform-aws-vpc](https://github.com/terra4aws64/terraform-aws-vpc)         | Terraform module for creating AWS VPCs                                                                  |
 
-## Development
-
-### Repositories
+## Repositories
 
 - Project GIT repository: [https://github.com/serdigital64/terra4aws64](https://github.com/serdigital64/terra4aws64)
 - Project Documentation: [https://github.com/serdigital64/terra4aws64](https://github.com/serdigital64/terra4aws64)
 - Terraform Namespace: [https://registry.terraform.io/namespaces/terra4aws64](https://registry.terraform.io/namespaces/terra4aws64)
 
-### Environment
-
-- Prepare dev tools:
-  - Install the latest version of the [Terraform CLI](https://www.terraform.io/downloads)
-  - Install GIT
-  - (Optional) Install Git Flow
-- Clone GIT repositories
-
-  ```shell
-  # Create the main repository
-  cd <YOUR_PROJECTS_PATH>
-  git clone https://github.com/serdigital64/terra4aws64.git
-  # Create module repositories as git submodules
-  git submodule init
-  # Update modules
-  git submodule update
-  # Enable main branch on submodules
-  git submodule foreach "git checkout main"; git submodule foreach "git checkout develop"
-  # (Optional) Initialize git flow. Production branch:main, use defaults for the remaining branches
-  git submodule foreach "git flow init"
-  ```
-
-- Adjust environment variables to reflect your configuration:
-
-  ```shell
-  # Copy environment definition files from templates:
-  cp dot.local .local
-  cp dot.secrets .secrets
-  # Review and update content for both files
-  ```
-
-- Initialize dev environment variables
-
-  ```shell
-  source bin/devta64-set
-  ```
-
-### Contributing
+## Contributing
 
 Help on implementing new features and maintaining the code base is welcomed.
 
 [Contributor Covenant Code of Conduct](./CODE_OF_CONDUCT.md)
 
-### License
+## License
 
-[GPL-3.0-or-later](https://www.gnu.org/licenses/gpl-3.0.txt)
+[Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0.txt)
 
 ### Author
 
