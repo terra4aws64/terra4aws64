@@ -10,11 +10,3 @@
 # Project base location. Adjust to your local GIT repo
 DEVTA64_ROOT="${HOME}/git/terra4aws64"
 export DEVTA64_ROOT
-
-# Terraform / CLI
-DEVTA64_CMD_TERRAFORM='/usr/bin/terraform'
-export DEVTA64_CMD_TERRAFORM
-
-# Container / CLI
-DEVTA64_CMD_CONTAINER=''
-export DEVTA64_CMD_CONTAINER
