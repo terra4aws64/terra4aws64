@@ -26,8 +26,8 @@ Collection of Terraform AWS modules for deploying common infrastructure landscap
 
 ## Repositories
 
-- Project GIT repository: [https://github.com/serdigital64/terra4aws64](https://github.com/serdigital64/terra4aws64)
-- Project Documentation: [https://github.com/serdigital64/terra4aws64](https://github.com/serdigital64/terra4aws64)
+- Project GIT repository: [https://github.com/terra4aws64/terra4aws64](https://github.com/terra4aws64/terra4aws64)
+- Project Documentation: [https://github.com/terra4aws64/terra4aws64](https://github.com/terra4aws64/terra4aws64)
 - Terraform Namespace: [https://registry.terraform.io/namespaces/terra4aws64](https://registry.terraform.io/namespaces/terra4aws64)
 
 ## Contributing

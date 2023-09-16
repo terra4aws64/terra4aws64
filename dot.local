@@ -8,5 +8,5 @@
 #
 
 # Project base location. Adjust to your local GIT repo
-DEVTA64_ROOT="${HOME}/git/terra4aws64"
-export DEVTA64_ROOT
+DEV_ROOT="$(pwd)"
+export DEV_ROOT
