@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+#
+# Fork GitHub sub-repositories
+#
+# * Use when GIT submodule is not possible or needed
+# * Sub-repositories are regular GIT repositories created inside another one
+# * Template Version: v1.0.0
+#
+
+#
+# Imports
+#
+
+# shellcheck source=SCRIPTDIR/../.env
+
+# shellcheck source=SCRIPTDIR/dev-set
+source ./bin/dev-set || exit 1
+
+# shellcheck source-path=SCRIPTDIR/../lib
+source "$DEV_CICD_BASHLIB64" || exit 1
+
+#
+# Main
+#
+
+declare repo=''
+
+bl64_check_export 'DEV_SUBREPO_LIST' &&
+  bl64_check_export 'DEV_SUBREPO_ROOT' &&
+  bl64_check_export 'DEV_SUBREPO_UPSTREAM' &&
+  bl64_check_export 'DEV_CICD_GH' ||
+  exit $?
+
+bl64_msg_show_phase 'Fork GitHub sub-repositories'
+cd "$DEV_SUBREPO_ROOT" || exit $?
+for repo in $DEV_SUBREPO_LIST; do
+  bl64_msg_show_task "Fork sub-repository (${repo})"
+  "$DEV_CICD_GH" repo fork --clone --remote "${DEV_SUBREPO_UPSTREAM}/${repo}.git" ||
+    exit $?
+done

@@ -3,8 +3,10 @@
 #
 # Project development environment / Local variables
 #
-# * this file should be excluded from GIT
-# * source before .env
+# * This file should be excluded from GIT
+# * Source before .env
+# * Template variables (X_VARIABLE_X) must be replaced to match project definition
+# * Template version: 1.0.0
 #
 
 # Project base location. Adjust to your local GIT repo
