@@ -1,18 +1,21 @@
 #
-# Project
+# GIT Ignore
+#
+# * Template version: 1.0.1
 #
 
 .tmp/*
-.cache/*
 .var/*
 
 # VScode
-.vscode/*
+.vscode
 *.code-workspace
 
 # Builds for prod/dev/test
-dist/*
 build/*
+
+# Dev libs. Dynamic content update at dev time
+lib/*
 
 # Secrets
 .secrets
@@ -24,11 +27,5 @@ build/*
 !/**/.gitkeep
 
 #
-# Tools
+# Project specific exclusions
 #
-
-.git-secrets
-.terraform.lock.hcl
-terraform.tfstate
-terraform.tfstate.backup
-
